@@ -188,7 +188,7 @@ body, .app {
   height: 80px;
   background-color: #4CAF50;
   color: white;
-  position:absolute;
+  position:fixed;
   top:7%;
   text-align: center;
   z-index:1000;
@@ -196,6 +196,8 @@ body, .app {
   margin: 0 auto;
   left: 0;
   right: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
 }
 
 
@@ -238,4 +240,16 @@ body, .app {
 
 .book-notification-shelf{
   color: #0034c0;
+}
+
+
+.overlay{
+  z-index:5000 !important;
+  background-color:white;
+  position:fixed;
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
