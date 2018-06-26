@@ -32,7 +32,6 @@ class Book extends Component {
         )
     }
 }
-
 Book.propTypes = {
     book: PropTypes.object.isRequired,
     onChangeShelf: PropTypes.func.isRequired

@@ -64,6 +64,7 @@ class BooksApp extends React.Component {
                 }
                 else if (bookResults) {
                     bookResults.map(bookResult => {
+                        //loops each book and tests if data is missing
                         if (bookResult.shelf === undefined) {
                             bookResult.shelf = "none";
                         }
