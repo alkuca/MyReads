@@ -63,7 +63,13 @@ class BooksApp extends React.Component {
                     this.setState({ query: [] });
                 }
                 else if (bookResults) {
+                    // if the books array already contains a book with the same id as the searched book , sets the shelf value to the same value
                     bookResults.map(bookResult => {
+                        this.state.books.map(book=> {
+                            if(bookResult.id === book.id){
+                                bookResult.shelf = book.shelf
+                            }
+                        });
                         //loops each book and tests if data is missing
                         if (bookResult.shelf === undefined) {
                             bookResult.shelf = "none";
@@ -100,7 +106,7 @@ class BooksApp extends React.Component {
                   notificationUpdate={this.notificationInfo}
               />
           </div>
-          <Route path="/addBook" render={() => (
+          <Route path="/search" render={() => (
               <div className="search-books">
                   <div className="search-books-bar">
                       <Link
@@ -146,7 +152,7 @@ class BooksApp extends React.Component {
                   </div>
                   <div className="open-search">
                       <Link
-                          to="/addBook"
+                          to="/search"
                       >Add Book
                       </Link>
                   </div>
