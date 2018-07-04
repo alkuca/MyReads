@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './App.css'
 import PropTypes from 'prop-types'
-
+import Search from "./Search";
 
 class Book extends Component {
+
+
     render(){
         // if the book dosent have a thumbnail , replace it with a dummy image
         let bookThumbnail;
@@ -12,6 +14,15 @@ class Book extends Component {
         else {
             bookThumbnail = this.props.book.imageLinks.thumbnail;
         }
+
+        let bookAuthors;
+        if(this.props.book.authors === undefined)
+            bookAuthors = "Unknown Author";
+        else {
+            bookAuthors = this.props.book.authors.join(', ');
+        }
+
+
 
         return (
             <li  key={this.props.book.id}>
@@ -23,17 +34,18 @@ class Book extends Component {
                                 value={this.props.book.shelf}
                                 onChange={(event) => {
                                     this.props.onChangeShelf(this.props.book, event);
-                                    this.props.notificationUpdate(this.props.book.title, event.target.value);}}>
-                                    <option value="move" disabled>Move to...</option>
-                                    <option value="currentlyReading" >Currently Reading</option>
-                                    <option value="wantToRead">Want to Read</option>
-                                    <option value="read">Read</option>
-                                    <option value="none">None</option>
+                                    this.props.notificationUpdate(this.props.book.title, event.target.value);
+                                    this.props.setShelfValue(this.props.book, event);}}>
+                                <option value="move" disabled>Move to...</option>
+                                <option value="currentlyReading" >Currently Reading</option>
+                                <option value="wantToRead">Want to Read</option>
+                                <option value="read">Read</option>
+                                <option value="none">None</option>
                             </select>
                         </div>
                     </div>
                     <div className="book-title">{this.props.book.title}</div>
-                    <div className="book-authors">{this.props.book.authors}</div>
+                    <div className="book-authors">{bookAuthors}</div>
                 </div>
             </li>
 

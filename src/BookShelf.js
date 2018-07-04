@@ -13,6 +13,8 @@ function BookShelf(props) {
                             book={book}
                             onChangeShelf={props.onChangeShelf}
                             notificationUpdate={props.notificationUpdate}
+                            // need to fix this method
+                            setShelfValue={props.onChangeShelf}
                         />
                     ))}
                 </ol>
