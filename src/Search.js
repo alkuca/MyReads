@@ -3,7 +3,7 @@ import './App.css'
 import Book from './Book'
 import {Link} from "react-router-dom"
 import * as BooksAPI from "./BooksAPI";
-
+import { Debounce } from 'react-throttle';
 
 class Search extends Component {
     state = {
@@ -52,7 +52,10 @@ class Search extends Component {
                     >Close
                     </Link>
                     <div className="search-books-input-wrapper">
+                        {/* Responds to the input after 400ms of no typing */}
+                    <Debounce time="400" handler="onChange">
                         <input type="text" placeholder="Search by title or author" onChange={(event) => this.searchForBooks(event)}/>
+                    </Debounce>
                     </div>
                 </div>
                 <div className="search-books-results">

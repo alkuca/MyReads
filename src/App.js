@@ -35,12 +35,13 @@ class BooksApp extends React.Component {
         }));
     };
 
-    componentDidMount(){
-        this.state.loading=false;
-        this.state.overlay="";
-        BooksAPI.getAll().then((books) =>{
-            this.setState({ books })
-        })
+    async componentDidMount(){
+        this.setState(() =>({
+            loading : false,
+            overlay : "",
+        }));
+        const books = await BooksAPI.getAll()
+        this.setState({ books })
     }
 
     componentDidUpdate(){
