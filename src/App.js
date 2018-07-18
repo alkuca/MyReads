@@ -72,7 +72,7 @@ class BooksApp extends React.Component {
                         notificationUpdate={this.notificationInfo}
                     />
                 </div>
-                <Route path={`${process.env.PUBLIC_URL}/search`} render={() => (
+                <Route path="https://alkuca.github.io/MyReads/search" render={() => (
                     <Search
                         onChangeShelf={this.update}
                         notificationUpdate={this.notificationInfo}
@@ -85,7 +85,7 @@ class BooksApp extends React.Component {
                         color={'#0034c0'}
                     />
                 </div>
-                <Route exact path={`${process.env.PUBLIC_URL}/`}  render={() => (
+                <Route exact path="https://alkuca.github.io/MyReads/"  render={() => (
                     <div className="list-books">
                         <div className="list-books-title">
                             <h1>MyReads</h1>
@@ -99,7 +99,7 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="open-search">
                             <Link
-                                to={`${process.env.PUBLIC_URL}/search`}
+                                to="https://alkuca.github.io/MyReads/search"
                             >Add Book
                             </Link>
                         </div>
