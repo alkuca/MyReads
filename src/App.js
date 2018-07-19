@@ -72,7 +72,7 @@ class BooksApp extends React.Component {
                         notificationUpdate={this.notificationInfo}
                     />
                 </div>
-                <Route path="https://alkuca.github.io/MyReads/search" render={() => (
+                <Route path="/search" render={() => (
                     <Search
                         onChangeShelf={this.update}
                         notificationUpdate={this.notificationInfo}
@@ -85,7 +85,7 @@ class BooksApp extends React.Component {
                         color={'#0034c0'}
                     />
                 </div>
-                <Route exact path="https://alkuca.github.io/MyReads/"  render={() => (
+                <Route exact path="/"  render={() => (
                     <div className="list-books">
                         <div className="list-books-title">
                             <h1>MyReads</h1>
@@ -99,7 +99,7 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="open-search">
                             <Link
-                                to="https://alkuca.github.io/MyReads/search"
+                                to="/search"
                             >Add Book
                             </Link>
                         </div>
